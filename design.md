@@ -68,7 +68,6 @@ graph TD
     Thika-->|63.9km|Sagana
     Thika-->|86.8km|Othaya
     Sagana-->|156km|Nyahururu
-    Nyahururu-->|63.3km|Nakuru
     Othaya-->|16.9km|Nyeri
     Nyeri-->|104km|Nyahururu
     Nyahururu-->|63.3km|Nakuru
