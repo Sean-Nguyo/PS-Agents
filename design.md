@@ -49,17 +49,17 @@ graph TD
     Nairobi-->|15.5km|Ruaka
     Nairobi-->|15.5km|Kiambu
     Nairobi-->|24.6|Ruiru
-    Nairobi-->|53.8km|Maai Mahiu
-    Gitaru-->|20.1|Limuru
+    Nairobi-->|53.8km|Maai-Mahiu
+    Gitaru-->|20.1km|Limuru
     Ruaka-->|21km|Limuru
     Kiambu-->|25.7km|Limuru
     Limuru-->|56.1km|Naivasha
     Naivasha-->|30.4km|Gilgil
     Gilgil-->|42.6km|Nakuru
     Nakuru-->|94.5km|Timboroa
-    Nakuru-->|63.1km|Eldama Ravine
+    Nakuru-->|63.1km|Eldama-Ravine
     Timboroa-->|61.7km|Eldoret
-    Eldama Ravine-->|108km|Eldoret
+    Eldama-Ravine-->|108km|Eldoret
     Eldoret-->|46km|Kapsabet
     Eldoret-->|106km|Kakamega
     Kapsabet-->|80.3km|Kisumu
@@ -74,11 +74,11 @@ graph TD
     Nyahururu-->|63.3km|Nakuru
     Nakuru-->|107km|Kericho
     Kericho-->|60.9km|Ahero
-    Maai Mahiu-->|89.1km|Narok
+    Maai-Mahiu-->|89.1km|Narok
     Narok-->|81km|Bomet
     Bomet-->|82.4km|Kisii
-    Kisii-->|52km|Homa Bay
-    Homa Bay-->|84.5km|Ahero
+    Kisii-->|52km|Homa-Bay
+    Homa-Bay-->|84.5km|Ahero
     Kisii-->|77.4km|Awach
     Awach-->|14.1km|Ahero
     Ahero-->|23.5km|Kisumu
