@@ -221,7 +221,7 @@ graph TD
 ### Meeting Minutes
 - **Date**: 07/10/2026
 - **Platform**: Google Meet
-- **Members Present**: Albert Miricho, Sean Nguyo, Sydney Aisha
+- **Members Present**: Albert Miricho (189990), Sean Ndung'u (191602), Sydney Aisha (190497)
 - **Agenda**:
   1. Problem formulation and PEAS definition.
   2. Construction of a highway-directed graph and abstraction tree.
