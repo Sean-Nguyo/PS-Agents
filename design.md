@@ -4,48 +4,33 @@
 Find a successfull route to reach the destination (Kisumu from Nairobi).
 Use minimal computation time to find the route.
 Minimize total distance travelled along said route.
+Trip duration and whether delivery deadlines are met.
+Safety (no collisions), rule compliance (obeying speed limits, lane keeping), and passenger/cargo comfort (smooth braking and maintaining stable movement during transportation.).
 
 **Environment:**
-The physical highway network in Kenya (specifically Nairobi, Central Highlands, Rift Valley, and Lake Victoria Basin).
+The physical highway network in Kenya (specifically Nairobi, Central Highlands, Rift Valley, and Lake Victoria Basin) including the A104, B1, B3, and A1 corridors. 
+Different road conditions, road construction areas, speed bumps, potholes, and changes in terrain such as the Rift Valley escarpments. Other road users, including heavy trucks, matatus, passenger vehicles, motorcycles (boda-bodas), pedestrians, and wandering livestock. Weather conditions such as heavy rain and fog, especially around areas such as Limuru and Mau Summit.
 Google Maps data representation of these regions with locations(nodes), roads(edges) and distances(weights/costs).
 
 **Actuators:**
 The mechanism to output the calculated optimal path like a GUI display showing the route, a printed list of waypoints, or map rendering.
+Hardware components: Electronic throttle/accelerator control. Air-braking system and retarder. Steering mechanisms for controlling the steering angle. Transmission and gear selection. Signalling and lighting systems, including turn indicators, headlights, brake lights, and hazard lights.
 
 **Sensors:**
 Google Maps Search/Directions API used to retrieve nodes, edges, and distance inputs.
 User interface to receive input about starting point and destination.
+Real-time monitoring through cameras (for lane detection, traffic lights, obstacles), long-range LiDAR and radar for detecting obstacles and supporting adaptive cruise control. Cameras for detecting lanes, road signs, traffic lights, and pedestrians. GPS/GNSS and an IMU (Inertial Measurement Unit) for determining the vehicle’s position and orientation. Wheel-speed sensors and engine diagnostics for monitoring vehicle speed, fuel level, tyre pressure, and other vehicle conditions.
 
 #### B. Environment Dimensions
-1. **Fully Observable vs. Partially Observable:** **Fully Observable**. The agent has access to the complete map, including all towns and the distances between them before it starts searching.
+1. **Partially Observable vs. Fully Observable:** **Partially Observable.** The trailer agent cannot know everything happening on the road at a given time. It may not know about traffic jams ahead, broken-down vehicles or sudden changes in weather around areas like Mau Summit.
 
-2. **Deterministic vs. Stochastic:** **Deterministic**. If the agent chooses to move from Nairobi to Nakuru, the outcome is guaranteed (it arrives at the Nakuru node), assuming we are just calculating paths and not driving a physical vehicle.
+2. **Deterministic vs. Stochastic:** **Stochastic.** Road and traffic conditions can change unexpectedly. Other drivers may behave unpredictably, pedestrians may cross the road suddenly and weather conditions may change, making it difficult to predict the exact outcome of an action.
 
-3. **Episodic vs. Sequential:** **Sequential**. The choice of the next town depends on the current town, and the sequence of decisions impacts the total path cost.
+3. **Episodic vs. Sequential:** **Sequential.** Each decision affects what happens next. For example, choosing a route through the A104 instead of the B3 via Narok affects the distance travelled, fuel consumption and the route options available later.
 
-4. **Static vs. Dynamic:** **Static**. For the purpose of finding a distance-based optimal route, the map and distances between towns do not change while the agent is deliberating.
+4. **Static vs. Dynamic:** **Dynamic.** The road environment changes while the agent is making decisions. Traffic levels, the positions of other vehicles and road conditions can change at any time.
 
-5. **Discrete vs. Continuous:** **Discrete**. The environment is modeled as a finite set of distinct nodes (towns/intersections) and edges (connecting highways), rather than continuous GPS coordinates.
-- Performance Measures: Safety (zero collisions and road infractions). Trip duration and whether delivery deadlines are met. Fuel efficiency and minimizing the total distance travelled. Cargo safety, including avoiding sudden braking and maintaining stable movement during transportation.
-
-- Environment: Kenya’s highway network, including the A104, B1, B3, and A1 corridors. Different road conditions, road construction areas, speed bumps, potholes, and changes in terrain such as the Rift Valley escarpments. Other road users, including heavy trucks, matatus, passenger vehicles, motorcycles (boda-bodas), pedestrians, and wandering livestock. Weather conditions such as heavy rain and fog, especially around areas such as Limuru and Mau Summit.
-
-- Actuators: Electronic throttle/accelerator control. Air-braking system and retarder. Steering mechanisms for controlling the steering angle. Transmission and gear selection. Signalling and lighting systems, including turn indicators, headlights, brake lights, and hazard lights.
-
-- Sensors: Long-range LiDAR and radar for detecting obstacles and supporting adaptive cruise control. Cameras for detecting lanes, road signs, traffic lights, and pedestrians. GPS/GNSS and an IMU (Inertial Measurement Unit) for determining the vehicle’s position and orientation. Wheel-speed sensors and engine diagnostics for monitoring vehicle speed, fuel level, tyre pressure, and other vehicle conditions.
-
-#### B. Environment Dimensions
-### B. Environment Dimensions
-
-* **Partially Observable vs. Fully Observable:** **Partially Observable.** The trailer agent cannot know everything happening on the road at a given time. It may not know about traffic jams ahead, broken-down vehicles or sudden changes in weather around areas like Mau Summit.
-
-* **Deterministic vs. Stochastic:** **Stochastic.** Road and traffic conditions can change unexpectedly. Other drivers may behave unpredictably, pedestrians may cross the road suddenly and weather conditions may change, making it difficult to predict the exact outcome of an action.
-
-* **Episodic vs. Sequential:** **Sequential.** Each decision affects what happens next. For example, choosing a route through the A104 instead of the B3 via Narok affects the distance travelled, fuel consumption and the route options available later.
-
-* **Static vs. Dynamic:** **Dynamic.** The road environment changes while the agent is making decisions. Traffic levels, the positions of other vehicles and road conditions can change at any time.
-
-* **Discrete vs. Continuous:** **Continuous.** The trailer's speed, position, steering angle and distance travelled can take different values within a range. However, when planning routes, road junctions can be represented as discrete points on a map.
+5. **Discrete vs. Continuous:** **Continuous.** The trailer's speed, position, steering angle and distance travelled can take different values within a range. However, when planning routes, road junctions can be represented as discrete points on a map.
 
 ## 2. Directed Graph & Search Tree (with Abstraction)
 #### A. Directed Graph of Candidate Road Networks
