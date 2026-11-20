@@ -235,8 +235,11 @@ Since we are looking for the *optimal* path based on distance along roads alone,
 4. Continue expanding the lowest-cost path until the Kisumu node is reached and extracted from the frontier.
 
 5. Compare standard routes mathematically using the accumulated distance to prove optimality.
-   
-## 4. Group Work Evidence
+
+## 4. Uniform Cost Search Implementation (TrailerRouting.py)
+The unufirm cost search algorithm was used to on=btain the optimal routes from the start node (Nairobi) to the destination node (Kisumu) as demonstrated in the UCS_Trailer.ipynb Python Notebook
+
+## 5. Group Work Evidence
 ### Meeting Minutes
 - **Date**: 07/10/2026
 - **Platform**: Google Meet
